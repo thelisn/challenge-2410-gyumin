@@ -1,14 +1,8 @@
-import { useEffect, useState } from "react";
-import useFetchData from "@/hooks/useFetchData";
+import useFeedStore from "@/hooks/useFeedStore";
 import FeedItem from "./FeedItem";
 
 const FeedList = () => {
-  const { data: fetchData, isLoading } = useFetchData();
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    setData(fetchData);
-  }, [fetchData]);
+  const { data, isLoading } = useFeedStore();
 
   if (isLoading) return <p>Loading...</p>;
 
