@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useFeedStore from "../../store/useFeedStore";
+import useFeedStore from "@/store/useFeedStore";
 import SearchInput from "./SearchInput";
 import Button from "./Button";
 

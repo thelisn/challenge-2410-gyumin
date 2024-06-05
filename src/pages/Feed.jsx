@@ -3,9 +3,11 @@ import FeedList from "@/components/Feed/FeedList";
 import SearchBox from "@/components/Feed/SearchBox";
 import useFetchData from "@/hooks/useFetchData";
 import useFeedStore from "@/store/useFeedStore";
-import Button from "../components/Feed/Button";
+import Button from "@/components/Feed/Button";
+import { useNavigate } from "react-router";
 
 const Feed = () => {
+  const navigate = useNavigate();
   const { data, isLoading, error } = useFetchData();
   const { setData, setRenderData, setIsLoading } = useFeedStore();
   const [isSearch, setIsSearch] = useState(false);
@@ -25,7 +27,7 @@ const Feed = () => {
   };
 
   const handleClickWriteButton = () => {
-    console.log("click");
+    navigate("/write");
   };
 
   return (
