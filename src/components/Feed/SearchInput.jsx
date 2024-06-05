@@ -1,18 +1,20 @@
 import { func, object } from "prop-types";
 
-const SearchBox = ({ config, onChange }) => {
+const SearchInput = ({ config, onChange, ...children }) => {
   const { label, type, id, placeholder } = config;
+  const { hiddenLabel } = children;
+  
   return (
-    <div>
-      <label htmlFor={id}>{label}</label>
-      <input type={type} id={id} placeholder={placeholder} role="searchbox" onChange={onChange} />
-    </div>
+    <>
+      <label htmlFor={id} className={`${!hiddenLabel || "sr-only"} mx-2`}>{label}</label>
+      <input type={type} id={id} placeholder={placeholder} role="searchbox" onChange={onChange} className="border-2 border-gray-300 rounded-md p-2 w-full" />
+    </>
   );
 };
 
-export default SearchBox;
+export default SearchInput;
 
-SearchBox.propTypes = {
+SearchInput.propTypes = {
   config: object,
   onChange: func,
 };

@@ -6,9 +6,13 @@ const FeedList = () => {
 
   if (isLoading) return <p>Loading...</p>;
 
-  return renderData.map((post, index) => {
-    return <FeedItem key={index} post={post} />;
-  });
+  return (
+    <div className="flex flex-col gap-3 my-4">
+      {renderData.map((post, index) => {
+        return <FeedItem key={index} post={post} />;
+      })}
+    </div>
+  );
 };
 
 export default FeedList;
