@@ -5,7 +5,10 @@ import useFetchData from "@/hooks/useFetchData";
 import useFeedStore from "@/store/useFeedStore";
 
 const Feed = () => {
+  // data fetch
   const { data, isLoading, error } = useFetchData();
+  
+  // data store
   const { setData, setRenderData, setIsLoading } = useFeedStore();
 
   useEffect(() => {
