@@ -13,8 +13,6 @@ const useFetchData = (options = {}) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const abortController = new AbortController();
-
     setIsLoading(true);
 
     async function fetchData() {
@@ -22,7 +20,6 @@ const useFetchData = (options = {}) => {
         const response = await fetch(baseUrl, {
           ...defaultOptions,
           ...options,
-          signal: abortController.signal,
         });
         const responseData = await response.json();
 
@@ -37,10 +34,6 @@ const useFetchData = (options = {}) => {
     }
 
     fetchData();
-
-    return () => {
-      abortController.abort();
-    };
   }, []);
 
   return { data, isLoading, error };

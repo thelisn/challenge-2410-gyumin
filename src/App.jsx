@@ -5,7 +5,7 @@ function App() {
     <>
       <RootLayout />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
