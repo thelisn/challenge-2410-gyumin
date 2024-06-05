@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 
-const baseUrl = import.meta.env.VITE_DB_URL;
 
-const defaultOptions = {
-  method: "GET",
-  headers: { "Content-Type": "application/json" },
-};
-
-const useFetchData = (options = {}) => {
+const useFetch = () => {
+  const BASE_URL = import.meta.env.VITE_DB_URL;
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -17,17 +12,15 @@ const useFetchData = (options = {}) => {
 
     async function fetchData() {
       try {
-        const response = await fetch(baseUrl, {
-          ...defaultOptions,
-          ...options,
+        const response = await fetch(BASE_URL, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
         });
         const responseData = await response.json();
 
         setData(responseData);
       } catch (error) {
-        if (!(error instanceof DOMException)) {
-          setError(error);
-        }
+        setError(error);
       } finally {
         setIsLoading(false);
       }
@@ -39,4 +32,4 @@ const useFetchData = (options = {}) => {
   return { data, isLoading, error };
 };
 
-export default useFetchData;
+export default useFetch;
