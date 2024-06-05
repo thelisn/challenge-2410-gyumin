@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import FeedList from "@/components/Feed/FeedList";
 import SearchBox from "@/components/Feed/SearchBox";
-import useFetchData from "@/hooks/useFetchData";
+import useFetch from "@/hooks/useFetch";
 import useFeedStore from "@/store/useFeedStore";
-import Button from "@/components/Feed/Button";
+import Button from "@/components/Button";
 import { useNavigate } from "react-router";
 
 const Feed = () => {
   const navigate = useNavigate();
-  const { data, isLoading, error } = useFetchData();
+  const { data, isLoading, error } = useFetch();
   const { setData, setRenderData, setIsLoading } = useFeedStore();
   const [isSearch, setIsSearch] = useState(false);
 
@@ -17,10 +17,6 @@ const Feed = () => {
     setRenderData(data);
     setIsLoading(isLoading);
   }, [data, isLoading, setData, setIsLoading, setRenderData]);
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
 
   const handleClickSearchButton = () => {
     setIsSearch(!isSearch);
@@ -39,6 +35,9 @@ const Feed = () => {
       {isSearch && <SearchBox />}
 
       <FeedList />
+
+      {isLoading && <p>로딩 중...</p>}
+      {error && <p>에러 발생: {error.message}</p>}
     </div>
   );
 };

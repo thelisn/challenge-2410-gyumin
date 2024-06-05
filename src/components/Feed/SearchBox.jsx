@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useFeedStore from "@/store/useFeedStore";
-import SearchInput from "./SearchInput";
-import Button from "./Button";
+import Input from "../Input";
+import Button from "../Button";
 
 const SearchBox = () => {
   const { data, setRenderData } = useFeedStore();
@@ -33,8 +33,12 @@ const SearchBox = () => {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-col">
-        <SearchInput
-          config={{ label: "제목 검색", type: "text", id: "search-title", placeholder: "검색어를 입력해주세요" }}
+        <Input
+          label="제목 검색"
+          type="text"
+          id="search-title"
+          role="searchbox"
+          placeholder="검색어를 입력해주세요"
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
@@ -42,13 +46,19 @@ const SearchBox = () => {
       <div className="flex flex-col">
         <p className="px-2">날짜 검색</p>
         <div className="flex gap-2">
-          <SearchInput
-            config={{ label: "날짜 검색 시작 범위", type: "date", id: "search-start-date" }}
+          <Input
+            label="날짜 검색 시작 범위"
+            type="date"
+            id="search-start-date"
+            role="searchbox"
             onChange={(e) => setStartDate(e.target.value)}
             hiddenLabel={true}
           />
-          <SearchInput
-            config={{ label: "날짜 검색 종료 범위", type: "date", id: "search-end-date" }}
+          <Input
+            label="날짜 검색 종료 범위"
+            type="date"
+            id="search-end-date"
+            role="searchbox"
             onChange={(e) => setEndDate(e.target.value)}
             hiddenLabel={true}
           />
