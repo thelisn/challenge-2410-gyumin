@@ -1,33 +1,26 @@
-import { useEffect, useState } from "react";
-
+import { useQuery } from "@tanstack/react-query";
 
 const useFetch = () => {
   const BASE_URL = import.meta.env.VITE_DB_URL;
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    setIsLoading(true);
+  async function fetchData() {
+    try {
+      const response = await fetch(BASE_URL, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+      const data = await response.json();
 
-    async function fetchData() {
-      try {
-        const response = await fetch(BASE_URL, {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-        });
-        const responseData = await response.json();
-
-        setData(responseData);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
+      return data;
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-    fetchData();
-  }, []);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["posts"],
+    queryFn: () => fetchData(),
+  });
 
   return { data, isLoading, error };
 };
