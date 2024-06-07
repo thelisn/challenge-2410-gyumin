@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  button {
+    @apply px-4 text-lg rounded-md border border-gray-400 py-1
+  }
+
+  input {
+    @apply border border-gray-400 rounded-md p-2 w-full;
+  }
+}
+
+@layer components {
+  .execute-button {
+    @apply bg-blue-500 text-white text-base border-none hover:bg-blue-600 hover:font-bold;
+  }
+
+  .nav-button {
+    @apply font-bold border-2 hover:border-blue-500;
+  }
+
+  .boundary-line {
+    @apply border-t border-gray-300 mt-1;
+  }
+}
+

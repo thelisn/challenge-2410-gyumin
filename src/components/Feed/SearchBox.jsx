@@ -66,8 +66,8 @@ const SearchBox = () => {
       </div>
 
       <div className="flex gap-2 justify-end mt-1 mb-2">
-        <Button onClick={filterData} className="bg-blue-500 text-white text-base border-none hover:bg-blue-600 hover:font-bold" text="검색" />
-        <Button onClick={resetData} className="bg-blue-500 text-white text-base border-none hover:bg-blue-600 hover:font-bold" text="초기화" />
+        <Button onClick={filterData} className="execute-button" text="검색" />
+        <Button onClick={resetData} className="execute-button" text="초기화" />
       </div>
     </div>
   );

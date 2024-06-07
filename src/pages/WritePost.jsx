@@ -27,13 +27,13 @@ const WritePost = () => {
   return (
     <div className="mx-4">
       <div className="flex justify-between mt-4 mb-4">
-        <Button onClick={handleClickBackButton} text="뒤로" className="font-bold border-2 hover:border-blue-500" />
+        <Button onClick={handleClickBackButton} text="뒤로" className="nav-button" />
       </div>
 
       <form onSubmit={handleSubmit}>
         <PostForm />
         <div className="flex justify-center mt-8">
-          <Button type="submit" text="작성하기" className="font-bold border-2 hover:border-blue-500" />
+          <Button type="submit" text="작성하기" className="execute-button" />
         </div>
       </form>
 

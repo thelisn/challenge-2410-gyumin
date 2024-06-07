@@ -15,7 +15,7 @@ const Input = ({ onChange, ...props }) => {
         role={role}
         placeholder={placeholder}
         onChange={debounce(onChange)}
-        className={`border border-gray-400 rounded-md p-2 w-full ${className}`}
+        className={className}
       />
     </>
   );
