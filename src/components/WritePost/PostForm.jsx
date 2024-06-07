@@ -1,4 +1,5 @@
 import Input from "../Input";
+import Textarea from "./Textarea";
 
 const PostForm = () => {
   return (
@@ -6,16 +7,8 @@ const PostForm = () => {
       <div className="flex flex-col">
         <Input label="제목" type="text" id="post-title" role="input" placeholder="제목을 입력하세요." />
       </div>
-      {/* 내용 텍스트 위쪽에 정렬되도록 수정 필요 */}
       <div className="flex flex-col">
-        <Input
-          label="내용"
-          type="textarea"
-          id="post-content"
-          role="input"
-          placeholder="내용을 입력하세요."
-          className="h-[200px] align-top block"
-        />
+        <Textarea label="내용" id="post-content" placeholder="내용을 입력하세요." />
       </div>
     </div>
   );
