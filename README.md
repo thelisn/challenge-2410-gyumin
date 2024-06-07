@@ -11,7 +11,7 @@ Node.js 16.18.0 이상 설치되어야 명령어를 실행할 수 있습니다.
 1. 프로젝트 클론
 
 ```bash
-git clone https://github.com/song-hyeon-min/challenge.git
+git clone https://github.com/thelisn/challenge-2410-gyumin.git
 ```
 
 2. 패키지 설치
@@ -35,7 +35,8 @@ npm run dev
  ┃ ┃ ┣ 📜FeedList.jsx
  ┃ ┃ ┗ 📜SearchBox.jsx
  ┃ ┣ 📂WritePost
- ┃ ┃ ┗ 📜PostForm.jsx
+ ┃ ┃ ┣ 📜PostForm.jsx
+ ┃ ┃ ┗ 📜Textarea.jsx
  ┃ ┣ 📜Button.jsx
  ┃ ┗ 📜Input.jsx
  ┣ 📂hooks
@@ -53,13 +54,14 @@ npm run dev
  ┃ ┗ 📜usePostFormStore.js
  ┣ 📂styles
  ┃ ┗ 📜index.css
+ ┣ 📂utils
+ ┃ ┗ 📜debounce.js
  ┣ 📜App.jsx
  ┗ 📜main.jsx
  ```
 
 ## 프로젝트 설명
-- 포스트 확인, 작성, 검색(제목 및 날짜)이 가능한 타임라인 피드를 구현하였습니다.
-- mocking db를 사용하여 데이터를 호출 및 생성합니다. (json-server 사용)
-- zustand 사용하여 상태를 관리합니다. (`store/useFeedStore.js`, `store/usePostFormStore.js`)
-- tailwindcss를 사용하여 디자인을 구현하였습니다.
+- 포스트 확인, 작성, 검색(제목 및 날짜)이 가능한 피드를 구현
+- mocking db를 사용하여 데이터를 호출 및 생성 (json-server 사용)
+- CSS: Tailwind CSS / 상태 관리: zustand 활용
 
