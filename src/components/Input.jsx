@@ -1,5 +1,4 @@
 import { bool, func, string } from "prop-types";
-import debounce from "@/utils/debounce";
 
 const Input = ({ onChange, ...props }) => {
   const { label, type, id, role, placeholder, hiddenLabel, className } = props;
@@ -14,7 +13,7 @@ const Input = ({ onChange, ...props }) => {
         id={id}
         role={role}
         placeholder={placeholder}
-        onChange={debounce(onChange)}
+        onChange={onChange}
         className={className}
       />
     </>

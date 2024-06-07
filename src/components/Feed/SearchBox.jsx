@@ -2,6 +2,7 @@ import { useState } from "react";
 import useFeedStore from "@/store/useFeedStore";
 import Input from "../Input";
 import Button from "../Button";
+import debounce from "@/utils/debounce";
 
 const SearchBox = () => {
   const { data, setRenderData } = useFeedStore();
@@ -39,7 +40,7 @@ const SearchBox = () => {
           id="search-title"
           role="searchbox"
           placeholder="검색어를 입력해주세요"
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={debounce((e) => setSearchTerm(e.target.value))}
         />
       </div>
 
@@ -51,7 +52,7 @@ const SearchBox = () => {
             type="date"
             id="search-start-date"
             role="searchbox"
-            onChange={(e) => setStartDate(e.target.value)}
+            onChange={debounce((e) => setStartDate(e.target.value))}
             hiddenLabel={true}
           />
           <Input
@@ -59,7 +60,7 @@ const SearchBox = () => {
             type="date"
             id="search-end-date"
             role="searchbox"
-            onChange={(e) => setEndDate(e.target.value)}
+            onChange={debounce((e) => setEndDate(e.target.value))}
             hiddenLabel={true}
           />
         </div>
