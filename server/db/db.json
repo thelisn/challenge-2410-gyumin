@@ -1,16 +1,16 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "첫 번째 글",
-      "date": "2024-06-01",
-      "content": "첫 번째 글입니다."
+      "id": 1000,
+      "title": "LISN URL",
+      "date": "2024-01-01",
+      "content": "https://v5.thelisn.com/"
     },
     {
-      "id": 2,
-      "title": "두 번째 글",
-      "date": "2024-06-02",
-      "content": "두 번째 글입니다."
+      "id": 1001,
+      "title": "LISN Github",
+      "date": "2024-06-01",
+      "content": "https://github.com/thelisn"
     }
   ]
 }
