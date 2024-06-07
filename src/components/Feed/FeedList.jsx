@@ -7,7 +7,7 @@ const FeedList = () => {
   if (isLoading) return <p>Loading...</p>;
 
   return (
-    <div className="flex flex-col gap-3 my-4">
+    <div className="flex flex-col">
       {renderData.map((post, index) => {
         return <FeedItem key={index} post={post} />;
       })}

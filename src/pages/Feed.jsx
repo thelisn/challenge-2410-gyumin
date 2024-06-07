@@ -28,15 +28,14 @@ const Feed = () => {
 
   return (
     <div className="mx-4">
-      <div className="flex justify-between mt-4 mb-3">
+      <div className="flex justify-between mt-4 mb-2">
         <Button onClick={handleToggleSearch} text="검색" className="font-bold border-2 hover:border-blue-500" />
         <Button onClick={handleClickWriteButton} text="글쓰기" className="font-bold border-2 hover:border-blue-500" />
       </div>
       {isSearch && <SearchBox />}
+      <div className="border-t border-gray-300 mt-1" />
 
-      <FeedList />
-
-      {isLoading && <p>로딩 중...</p>}
+      {isLoading ? <p>로딩 중...</p> : <FeedList />}
       {error && <p>에러 발생: {error.message}</p>}
     </div>
   );

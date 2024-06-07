@@ -31,8 +31,8 @@ const SearchBox = () => {
   };
 
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex flex-col">
+    <div className="flex flex-col gap-2 transition-all">
+      <div className="mt-2 flex flex-col">
         <Input
           label="제목 검색"
           type="text"
@@ -44,7 +44,7 @@ const SearchBox = () => {
       </div>
 
       <div className="flex flex-col">
-        <p className="px-2">날짜 검색</p>
+        <p className="px-2 font-semibold">날짜 검색</p>
         <div className="flex gap-2">
           <Input
             label="날짜 검색 시작 범위"
@@ -65,11 +65,10 @@ const SearchBox = () => {
         </div>
       </div>
 
-      <div className="flex gap-2 justify-end mt-1">
-        <Button onClick={filterData} className="bg-blue-500 text-white text-base" text="검색" />
-        <Button onClick={resetData} className="bg-blue-500 text-white text-base" text="초기화" />
+      <div className="flex gap-2 justify-end mt-1 mb-2">
+        <Button onClick={filterData} className="bg-blue-500 text-white text-base border-none hover:bg-blue-600 hover:font-bold" text="검색" />
+        <Button onClick={resetData} className="bg-blue-500 text-white text-base border-none hover:bg-blue-600 hover:font-bold" text="초기화" />
       </div>
-      <div className="border-t-2 border-gray-300 mt-1 mb-3" />
     </div>
   );
 };
