@@ -8,6 +8,8 @@ const FeedList = () => {
 
   return (
     <div className="flex flex-col">
+      {renderData.length !== 0 || <p>포스트가 없습니다.</p>}
+      
       {renderData.map((post, index) => {
         return <FeedItem key={index} post={post} />;
       })}
