@@ -1,4 +1,5 @@
-import { func, object } from "prop-types";
+import { bool, func, string } from "prop-types";
+import debounce from "@/utils/debounce";
 
 const Input = ({ onChange, ...children }) => {
   const { label, type, id, role, placeholder, hiddenLabel, className } = children;
@@ -11,9 +12,9 @@ const Input = ({ onChange, ...children }) => {
       <input
         type={type}
         id={id}
-        placeholder={placeholder}
         role={role}
-        onChange={onChange}
+        placeholder={placeholder}
+        onChange={debounce(onChange)}
         className={`border-2 border-gray-300 rounded-md p-2 w-full ${className}`}
       />
     </>
@@ -23,6 +24,12 @@ const Input = ({ onChange, ...children }) => {
 export default Input;
 
 Input.propTypes = {
-  config: object,
+  label: string,
+  type: string,
+  id: string,
+  role: string,
+  placeholder: string,
+  hiddenLabel: bool,
+  className: string,
   onChange: func,
 };
