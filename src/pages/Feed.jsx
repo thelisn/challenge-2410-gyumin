@@ -18,7 +18,7 @@ const Feed = () => {
     setIsLoading(isLoading);
   }, [data, isLoading, setData, setIsLoading, setRenderData]);
 
-  const handleClickSearchButton = () => {
+  const handleToggleSearch = () => {
     setIsSearch(!isSearch);
   };
 
@@ -29,7 +29,7 @@ const Feed = () => {
   return (
     <div className="mx-4">
       <div className="flex justify-between mt-4 mb-3">
-        <Button onClick={handleClickSearchButton} text="검색" className="font-bold border-2 hover:border-blue-500" />
+        <Button onClick={handleToggleSearch} text="검색" className="font-bold border-2 hover:border-blue-500" />
         <Button onClick={handleClickWriteButton} text="글쓰기" className="font-bold border-2 hover:border-blue-500" />
       </div>
       {isSearch && <SearchBox />}

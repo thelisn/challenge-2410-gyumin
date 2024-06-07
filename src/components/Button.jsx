@@ -1,7 +1,7 @@
 import { func, string } from "prop-types";
 
-const Button = ({ ...children }) => {
-  const { text, onClick, className, onSubmit, type } = children;
+const Button = ({ ...props }) => {
+  const { type, text, className, onClick, onSubmit } = props;
 
   return (
     <button type={type || "button"} className={`px-4 text-lg rounded-md border border-gray-400 py-1 ${className}`} onClick={onClick} onSubmit={onSubmit}>
@@ -13,7 +13,10 @@ const Button = ({ ...children }) => {
 export default Button;
 
 Button.propTypes = {
+  type: string,
   text: string,
-  onClick: func,
   className: string,
+  onClick: func,
+  onSubmit: func,
 };
+

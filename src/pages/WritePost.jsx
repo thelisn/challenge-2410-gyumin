@@ -20,6 +20,8 @@ const WritePost = () => {
     const postData = { title, content, date };
     
     await writePost(postData);
+
+    navigate("/");
   };
 
   return (

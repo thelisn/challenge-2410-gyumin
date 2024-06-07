@@ -1,8 +1,8 @@
 import { bool, func, string } from "prop-types";
 import debounce from "@/utils/debounce";
 
-const Input = ({ onChange, ...children }) => {
-  const { label, type, id, role, placeholder, hiddenLabel, className } = children;
+const Input = ({ onChange, ...props }) => {
+  const { label, type, id, role, placeholder, hiddenLabel, className } = props;
 
   return (
     <>
